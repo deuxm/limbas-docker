@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  db:
+    image: deuxm/limbasdb
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: limbas
+      POSTGRES_USER: limbas
+
+  app:
+    image: deuxm/limbasapp
+    ports:
+      - 8083:80
+    links:
+      - db
+    restart: always
