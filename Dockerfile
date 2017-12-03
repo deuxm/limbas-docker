@@ -30,6 +30,9 @@ RUN echo $'\n\
       AllowOverride All \n\
 </Directory>' >> /etc/httpd/conf/httpd.conf
 
+# rename driver to limbas default
+RUN sed -i 's/PostgreSQL/PSQL/g' /etc/odbcinst.ini
+
 # run httpd
 EXPOSE 80
 
